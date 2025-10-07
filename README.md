@@ -1,72 +1,78 @@
-# 🎨 OpenCV Filter App  
-### Real-Time Camera Filters with Kotlin + OpenCV + Native C++ (JNI)
+# 🎥 **OpenCV Filter App**
 
-> **OpenCV Filter App** is an advanced Android application that applies **real-time camera filters** using the **Camera2 API** and **OpenCV native library (C++)**.  
-> The app delivers instant visual transformations like *Cartoon, Edge Detection, Blur,* and *Grayscale* — all while maintaining high FPS.  
-> A polished Material UI, smooth thumbnail animations, and custom toast notifications make it both beautiful and fast.
+### _Real-Time Camera Filters using Kotlin + OpenCV + Native C++ (JNI)_
 
----
-
-## 🚀 Project Overview
-
-This project bridges **Kotlin (Android)** and **OpenCV (C++)** using the **JNI (Java Native Interface)** to perform pixel-level image processing in native code for maximum performance.
-
-Every frame from the live camera preview is captured, processed through native OpenCV filters, and displayed instantly.  
-Users can:
-- 🎛️ Select filters via dropdown spinner  
-- 🎚️ Adjust intensity using a slider  
-- 📸 Capture images with flash and vibration feedback  
-- 🖼️ View saved images via animated thumbnails  
-- 📂 Access the gallery to view previously captured photos  
+> A high-performance Android application that applies **real-time camera filters** using **Camera2 API** and **OpenCV (C++)**.  
+> Delivers instant visual effects like *Cartoon*, *Edge Detection*, *Blur*, and *Grayscale* — all rendered natively for maximum FPS and smooth performance.  
+> Designed with a modern Material UI, fluid animations, and custom feedback to ensure a fast and elegant user experience.
 
 ---
 
-## 🧩 Key Features
+## 🌍 **Overview**
+
+The **OpenCV Filter App** bridges **Kotlin** and **C++ (OpenCV)** using the **JNI (Java Native Interface)** for efficient, pixel-level image processing directly in the native layer.
+
+**Workflow:**
+1. Captures each frame via **Camera2 TextureView**  
+2. Sends it to the **C++ layer (via JNI)**  
+3. Applies the selected filter in **real-time**  
+4. Displays the processed output instantly  
+
+### 🎯 **User Features**
+- Select filters via dropdown menu  
+- Adjust filter intensity with a slider  
+- Capture and save processed frames  
+- Animated thumbnail previews  
+- In-app gallery access for saved photos  
+
+---
+
+## 🧩 **Core Features**
 
 | Category | Description |
 |-----------|--------------|
-| 🧠 **Real-Time Processing** | OpenCV filters run directly on live frames for smooth and instant results. |
-| 🎨 **Filter Modes** | Supports *None*, *Cartoon*, *Edge*, *Blur*, and *Grayscale* filters. |
-| ⚡ **Native Acceleration** | Filters are computed using C++ and OpenCV for optimized performance. |
-| 📷 **Camera2 API** | Modern camera handling for stable frame streaming. |
-| 🪄 **Dynamic UI** | Filter dropdown, intensity control, and animated thumbnails. |
-| 💾 **Instant Save** | Captures are stored in `/Pictures/OpenCVFilterApp` and visible in Gallery. |
-| 💬 **Stylish Feedback** | Custom animated toast pop-ups for success/failure. |
-| 🎚️ **Intensity Control** | Dynamically adjusts edge/blur levels in real time. |
-| 🖼️ **Thumbnail Animation** | Smooth upward transition and fade when a new photo is captured. |
-| 📂 **In-App Gallery** | Integrated grid and fullscreen image preview. |
-| 💜 **Material Theme** | Elegant purple-accent UI with rounded edges and modern typography. |
+| ⚙️ **Real-Time Processing** | Filters applied directly on camera frames using native OpenCV functions. |
+| 🎨 **Filter Modes** | *None*, *Cartoon*, *Edge Detection*, *Blur*, *Grayscale* |
+| ⚡ **Native Performance** | Pixel operations handled in C++ for low-latency rendering. |
+| 📷 **Camera2 Integration** | Modern API ensures stable and high-FPS video stream. |
+| 🧭 **Dynamic UI** | Dropdown selector, live slider control, and fluid animations. |
+| 💾 **Quick Save** | Photos auto-saved to `/Pictures/OpenCVFilterApp`. |
+| 💬 **Interactive Feedback** | Custom animated toasts for save success or errors. |
+| 🎚️ **Adjustable Intensity** | Fine-tune edge or blur effects in real time. |
+| 🖼️ **Animated Thumbnails** | Smooth transitions when capturing new images. |
+| 📂 **Built-in Gallery** | View all captured photos without leaving the app. |
+| 💜 **Material Design** | Elegant purple-accent theme with modern typography. |
 
 ---
 
-## ⚙️ Tech Stack
+## 🧠 **Tech Stack**
 
-| Layer | Technology |
-|--------|-------------|
-| **Language** | Kotlin (Android), C++ (Native) |
-| **Framework** | Camera2 API + OpenCV 4.x |
-| **Build System** | Gradle + CMake + NDK |
-| **UI Design** | Material Components + ConstraintLayout |
-| **Animation** | Android Animator APIs |
+| Layer | Tools / Frameworks |
+|--------|--------------------|
+| **Languages** | Kotlin (Android), C++ (Native) |
+| **Frameworks** | Camera2 API, OpenCV 4.x |
+| **Build System** | Gradle + CMake + Android NDK |
+| **UI/UX** | Material Components + ConstraintLayout |
+| **Animations** | Android Animator APIs |
 | **Storage** | MediaStore + Scoped Storage |
 
 ---
 
-## 🧠 Filters Implemented
+## 🧮 **Implemented Filters**
 
-All filters are processed inside the native layer (`native-lib.cpp`) and called from Kotlin through JNI.
+Filters are processed inside the native C++ layer (`native-lib.cpp`) and invoked from Kotlin via JNI.
 
-| ID | Filter Name | Description |
-|----|--------------|-------------|
-| 0 | **None** | Displays original frame without modifications. |
-| 1 | **Cartoon** | Blends edge detection with color quantization to give a cartoonish look. |
-| 2 | **Edge Detection** | Uses Canny edge detector; adjustable via intensity slider. |
-| 3 | **Blur** | Applies Gaussian blur proportional to intensity. |
-| 4 | **Grayscale** | Converts frame to black & white image. |
+| ID | Filter | Description |
+|----|---------|-------------|
+| 0 | **None** | Displays the original camera frame. |
+| 1 | **Cartoon** | Combines edge detection + color quantization for a cartoon-like look. |
+| 2 | **Edge Detection** | Uses the Canny detector, adjustable via intensity. |
+| 3 | **Blur** | Applies Gaussian blur proportional to slider intensity. |
+| 4 | **Grayscale** | Converts frame into monochrome output. |
 
 ---
 
-### 🧮 Example — Cartoon Filter (C++ Code)
+### 🧩 **Example — Cartoon Filter (C++ Implementation)**
 
 ```cpp
 case 1: { // Cartoon Filter
@@ -89,83 +95,80 @@ case 1: { // Cartoon Filter
 
 ---
 
-## 🧱 Architecture Overview
+## 🧱 **System Architecture**
 
 ```
 📱 Kotlin (MainActivity)
 │
-│   ├── Captures frames from Camera2 TextureView
-│   ├── Sends bitmap + filter mode + intensity to JNI
-│   ├── Displays processed frame in ImageView
-│   ├── Handles capture button, animations, toast, and save
-│   └── Updates thumbnail preview
+│   ├── Captures camera frames via Camera2 API
+│   ├── Sends frame + filter ID + intensity → JNI
+│   ├── Displays processed output in ImageView
+│   ├── Handles capture, animations, and toast feedback
+│   └── Updates animated thumbnails
 │
 └── 🧠 Native Layer (C++ - native-lib.cpp)
-    ├── Receives input & output bitmaps
-    ├── Converts between ARGB ↔ Mat using AndroidBitmap
-    ├── Runs OpenCV filter pipeline
+    ├── Receives Bitmap data
+    ├── Converts ARGB ↔ OpenCV Mat
+    ├── Runs OpenCV filter logic
     ├── Returns processed frame
-    └── Ensures memory safety & efficiency
+    └── Optimized for speed and memory efficiency
 ```
 
 ---
 
-## 🖥️ App UI Flow
+## 🖥️ **User Interface Flow**
 
-### 🎛️ Filter Dropdown
-- Default shows “🎨 Select Filter”
-- Options: None | Cartoon | Edge | Blur | Grayscale
-- Auto-hides intensity bar for filters where not needed.
+### 🎛️ **Filter Dropdown**
+- Default: “🎨 Select Filter”
+- Options: None | Cartoon | Edge | Blur | Grayscale  
+- Intensity slider auto-hides when not required.
 
-### 🎚️ Intensity Slider
-- Updates blur radius or Canny thresholds live.
-- Value shown as **Filter Intensity: 0–100%**
+### 🎚️ **Intensity Slider**
+- Adjusts blur radius or edge thresholds.
+- Displays value as `Filter Intensity: 0–100%`.
 
-### 📸 Capture Button
-- Captures current processed frame.
-- Triggers flash effect + vibration.
-- Saves image via MediaStore to app folder.
+### 📸 **Capture Button**
+- Captures the current processed frame.  
+- Adds flash + vibration effect.  
+- Saves the image to `/Pictures/OpenCVFilterApp`.
 
-### 🖼️ Animated Thumbnail
-- Old image smoothly lifts upward and fades out.
-- New image fades in from bottom.
-- Clicking thumbnail opens image in system gallery.
+### 🖼️ **Animated Thumbnail**
+- Old image slides up + fades.  
+- New capture fades in from bottom.  
+- Tap thumbnail → Opens system gallery.
 
-### 💬 Custom Toast
-- Pop-up with “📸 Image Saved Successfully!” message.
-- Styled with purple rounded background and drop shadow.
-- Animated fade-in from top center.
+### 💬 **Custom Toast**
+- Message: “📸 Image Saved Successfully!”  
+- Styled with purple background, shadows, and fade-in animation.
 
 ---
 
-## 🧰 Build & Installation Guide
+## ⚙️ **Build & Installation Guide**
 
-### 🔧 Prerequisites
-- Android Studio **Flamingo or newer**
-- Installed **NDK** and **CMake** (via SDK Manager)
-- OpenCV SDK (for Android)
+### 🔧 **Requirements**
+- Android Studio **Flamingo (or newer)**  
+- Installed **NDK** + **CMake** via SDK Manager  
+- Downloaded **OpenCV SDK for Android**
 
-### 🪜 Setup Steps
+### 🪜 **Setup Steps**
 
 ```bash
-# Clone repository
-git clone https://github.com/GSNAIK-GAUTAMI/OpenCVFilterApp.git
-cd OpenCVFilterApp
+# Clone the repository
+git clone https://github.com/Harsh-18-raj/Flam-openCV-filter_app.git
+cd Flam-openCV-filter_app
 
 # Open in Android Studio
-# Let Gradle sync and build automatically
+# Allow Gradle to sync and build automatically
 
-# Connect your Android device (enable USB debugging)
-# Click ▶ Run
+# Connect Android device (with USB Debugging enabled)
+# Hit ▶ Run to launch the app
 ```
 
 ---
 
-## 🧑‍💻 Developer
+## 👨‍💻 **Developer**
 
-**👨‍💻 Ravi Raj**  
-💼 IIIT Dharwad, India  
+**Harsh Raj**  
+🎓 IIIT Dharwad, India  
 
----
-
-> “Where creativity meets computer vision — turning every frame into art.”
+> _“Where creativity meets computer vision — turning every frame into art.”_
